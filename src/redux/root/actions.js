@@ -1,12 +1,11 @@
 import axios from 'axios';
 
 // redux actions
-import * as requestFromServer from './cruds';
-import { RootActions, rootSlices } from './slices';
+import { rootSlices } from './slices';
 
 import { API_METHODS } from '../../app/api/constants';
 
-const actions = { rootSlices }
+const { actions } = rootSlices
 
 const makeAPIRequest = (requestObj, payload, headers) => {
     if (requestObj?.method === API_METHODS.POST) {
@@ -23,10 +22,8 @@ const makeAPIRequest = (requestObj, payload, headers) => {
   export const apiRequest = (requestObj, payload, headers={}) => (dispatch) => {
     return makeAPIRequest(requestObj, payload, headers)
       .then((response) => {
-        if (!response.data.success) {
-        }
         if (requestObj?.redux) {
-          dispatch(actions[requestObj?.redux]?.(response.data?.data));
+          dispatch(actions?.[requestObj?.redux]?.(response.data));
         }
         return response?.data;
       })
