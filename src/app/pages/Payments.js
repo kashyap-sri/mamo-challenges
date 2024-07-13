@@ -106,6 +106,9 @@ const Payments = () => {
     <div className="payments">
       <Header />
       <div className="payments__form">
+        <div className="payments__heading">
+          Please enter below details to initiate payment
+        </div>
         {
           loading ?
           <CircularProgress /> :
