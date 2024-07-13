@@ -1,0 +1,13 @@
+// Base App
+@import './base/settings';
+@import './base/base';
+@import './base/fonts';
+
+// variables
+@import './variables';
+
+// components
+@import './components/header';
+
+// pages
+@import './pages/payments';
