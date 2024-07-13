@@ -1,4 +1,4 @@
-# react-setup
+# Mamo coding challenge
 
 React boiler plate code to get started.
 
